@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Vintage Car Rentals</title>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+	 <!-- Link Swiper's CSS -->
+	 <link
+	 rel="stylesheet"
+	 href="https://unpkg.com/swiper/swiper-bundle.min.css"
+   />
+   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	
+	<header>
+		<div class="brand"></div>
+		<div class="toggle"></div>
+		<nav class="navigation">
+			
+			<ul>
+				<li><a href="#hero">Home</a></li>
+				<!-- <li><a href="#">Garage</a></li> -->
+				<li><a href="#about">About Us</a></li>
+				<!-- <li><a href="#">FAQ</a></li> -->
+				<li><a href="#contact">Contacts</a></li>
+				
+				<li ><a th:href="@{/login}">Login</a></li>
+				
+				<div class="social">
+					<a href="#">
+						<i class="fab fa-twitter"></i>
+					</a>
+					<a href="#">
+						<i class="fab fa-facebook"></i>
+					</a>
+					<a href="#">
+						<i class="fab fa-instagram"></i>
+					</a>
+					<a href="#">
+						<i class="fab fa-facebook-messenger"></i>
+					</a>
+				</div>
+				<div class="contact-bar"> 
+					<i class="fas fa-phone">+111 222 3456</i>
+				</div>
+				
+			</ul>
+			
+		</nav>
+		<div class="login">
+			<a th:href="@{/login}">Login</a>
+		</div>
+		<div class="contact-nav">
+			
+			<span>
+				<a href="#">
+					<i class="fab fa-twitter fa-2x"></i>
+				</a>
+				<a href="#">
+					<i class="fab fa-facebook fa-2x"></i>
+				</a>
+				<a href="#">
+					<i class="fab fa-instagram fa-2x"></i>
+				</a>
+				<a href="#">
+					<i class="fab fa-facebook-messenger"></i>
+				</a>
+			</span>
+			<i class="fas fa-phone"> <h6>&nbsp; +111 222 3456</h6></i>
+		</div>
+		<div class="hero" id="hero">
+			<div class="imgBx">
+				<img src="./img/Shelby_Cobra-2-no_bg.png" alt="">
+			</div>
+			<div class="msg-container">
+				<h2>intage <span> car Rentals </span></h2>
+			</div>
+			<div class="label-container">
+				<h5>THE Shelby Cobra 1965</h5>
+				<h4>$500 <span>/day</span></h4>
+				<a href="#">
+				<p>Drive Now &rarr;</p>
+				</a>
+			</div>
+
+		</div>
+
+	</header>
+
+
+	<section>
+	
+	<div class="section-title" >
+		<h1 data-aos="fade-left">Featured Cars</h1>
+
+		<!-- <h3 data-aos="fade-right">View All Cars</h3> -->
+	</div>	
+		
+	<div class="swiper mySwiper" data-aos="slide-left">
+		<div class="swiper-wrapper">
+			<div class="swiper-slide">
+				<img src="./img/Jaguar_Type_E_no_bg1.png">
+				<div class="card-content">
+					<h2>Jaguar</h2>
+					<h4>Type E 1969</h4>
+					<div class="card-details">
+						<p>5,000<span>/day</span></p>
+						<p>Drive now &rarr;</p>
+					</div>	
+				</div>
+			</div>
+		
+			<div class="swiper-slide">
+				<img src="./img/1962_Ferrari_250_GTO_no_bg.png">
+				<div class="card-content">
+					<h2>Ferrari</h2>
+					<h4>1962 250 GTO</h4>
+					<div class="card-details">
+						<p>10,000<span>/day</span></p>
+						<p>Drive now &rarr;</p>
+					</div>	
+				</div>
+			</div>
+		
+			<div class="swiper-slide">
+				<img src="./img/Shelby_Cobra-2-no_bg.png">
+				<div class="card-content">
+					<h2>Shelby</h2>
+					<h4>Cobra</h4>
+					<div class="card-details">
+						<p>15,000<span>/day</span></p>
+						<p>Drive now &rarr;</p>
+					</div>	
+				</div>
+			</div>
+			<div class="swiper-slide">
+				<img src="./img/Lamborghini_Miura_no_bg.png">
+				<div class="card-content">
+					<h2>Lamborghini</h2>
+					<h4>Miura</h4>
+					<div class="card-details">
+						<p>20,000<span>/day</span></p>
+						<p>Drive now &rarr;</p>
+					</div>	
+				</div>
+			</div>
+		
+			<div class="swiper-slide">
+				<img src="./img/1972 DeTomaso  Pantera GTS.png">
+				<div class="card-content">
+					<h2>DeTomaso Pantera</h2>
+					<h4>1972 GTS</h4>
+					<div class="card-details">
+						<p>10,000<span>/day</span></p>
+						<p>Drive now &rarr;</p>
+					</div>	
+				</div>
+			</div>
+		
+			<div class="swiper-slide">
+				<img src="./img/Cizeta-Moroder V16T_no_bg.png">
+				<div class="card-content">
+					<h2>Cizeta Moroder</h2>
+					<h4>V16T</h4>
+					<div class="card-details">
+						<p>15,000<span>/day</span></p>
+						<p>Drive now &rarr;</p>
+					</div>	
+				</div>
+			</div>
+		</div>	
+		<div class="swiper-pagination" style="opacity: 0.2;"></div>
+	</div>
+
+
+	<!-- ABOUT US -->
+
+	<div class="about-section" id="about">
+
+		<div class="left" data-aos="fade-left">
+			<img src="./img/details/Shelby-Cobra-Front.jfif" >
+			<div class="services-container" data-aos="fade-in">
+				<h2> Vintage Car Rentals</h2>
+				<p>Are you looking for a vintage car to rent?</p>
+				<p>Get in touch with Vintage Club.</p>
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, ipsam.</p>
+
+				<div class="services" data-aos="slide-right">
+					<span><i class="fas fa-tachometer-alt"></i><p>Unlimited Mileage</p></span>
+					<span><i class="fa fa-map-marker" ></i><p>Pick up Service</p></span>
+					<span><i class="fas fa-shipping-fast"></i><p>Delivery to Door</p></span>
+				</div>
+			</div>
+		</div>
+		<div class="right" data-aos="fade-right">
+			<img src="./img/details/Shelby-Cobra-interior (2).jfif">
+		</div>
+		
+
+	</div>
+
+	<div class="mapBox" data-aos="fade-out">
+		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3959.406914951814!2d125.61196806961323!3d7.078733466030986!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x32f96da196206f5f%3A0x59abacbdd0320e1c!2sGaisano%20Mall%20of%20Davao!5e0!3m2!1sen!2sph!4v1653023138999!5m2!1sen!2sph" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+	</div>
+	<div class="contact-section" id="contact">
+
+		
+		<div class="section-contact__1" data-aos="slide-left">
+			<h3>Feel Free to </h3>
+			<h3>Contact Us</h3>
+			
+			<p id="p1">Phone:</p> <span id="span1">+ 111 222 3456</span>
+			<p id="p2">Address: </p><span id="span2">123 Test Drive, Davao City</span>
+			<p id="p3">Email: </p><span id="span3">example@example.com</span>
+			<p id="p4">Hours of </p><span id="span4">Everyday</span>
+			<p id="p5">Occupation: </p><span id="span5">10:00AM - 10:00PM</span>
+		</div>
+		<div class="section-contact__2" data-aos="slide-right">
+			<h2>Send us a message</h2>
+			<form>
+				<input type="text" name="name" class="name" placeholder="Name">
+				<input type="email" name="email" class="email" placeholder="Email">
+				<input type="text" name="phone" class="phone" placeholder="Phone">
+				<textarea name="message" class="message" placeholder="Message"></textarea>
+				<button class="btn">Submit</button>
+			</form>
+		</div>
+	</div>
+	</section>
+
+
+	<footer>
+		<h3>Privacy Policy</h3>
+		<h2>&copy; Copyright 2022 | Leord All Rights Reserved</h2>
+
+	</footer>
+<script src="js/script.js" defer></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+ <!-- Swiper JS -->
+ <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+ <!-- Initialize Swiper -->
+ <script>
+	var swiper = new Swiper(".mySwiper", {
+	  effect: "coverflow",
+	  grabCursor: true,
+	  centeredSlides: true,
+	  slidesPerView: "auto",
+	  coverflowEffect: {
+		rotate: 20,
+		stretch: 0,
+		depth: 200,
+		modifier: 1,
+		slideShadows: true,
+	  },
+	  loop: true,
+	  autoplay: {
+		delay: 2500,
+		disableOnInteraction: false,
+	  },
+	  pagination: {
+		el: ".swiper-pagination",
+	  },
+	});
+
+	AOS.init({
+		duration: 1000,
+		once: true,
+	});
+  </script>
+</body>
+</html>
