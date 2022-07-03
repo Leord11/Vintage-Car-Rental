@@ -32,7 +32,7 @@ public class CarsController {
 	public String findAll(Model model) {
 		List<Cars> cars = carServices.findAll();
 		model.addAttribute("cars", cars);
-		return "/admin/cars";
+		return "admin/cars";
 	}
 	
 	@GetMapping("/admin/addCar")
