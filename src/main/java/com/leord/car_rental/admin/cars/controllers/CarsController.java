@@ -28,7 +28,7 @@ public class CarsController {
 	@Autowired
 	private CarsRepository carsRepository;
 	
-	@GetMapping("/admin/cars")
+	@RequestMapping(value="/admin/cars", method = RequestMethod.GET)
 	public String findAll(Model model) {
 		List<Cars> cars = carServices.findAll();
 		model.addAttribute("cars", cars);
