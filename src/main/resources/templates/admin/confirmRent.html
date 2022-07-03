@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{_layout}">
+
+<body>
+<div layout:fragment="content">
+
+<div class="content-wrapper">
+
+<div class="col-12 grid-margin">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title"></h4>
+                    <form class="form-sample" th:action="@{/rentals/confirm}" method="post" >
+                      <p class="card-description"> Rent Details </p>
+                      
+                      <input type="hidden" name="id"  th:value="${rent.id}"/>
+                      <input type="hidden" name="userid"  th:value="${rent.userid}"/>
+                      <input type="hidden" name="carid"  th:value="${rent.carid}"/>
+                      <input type="hidden" name="email"  th:value="${rent.email}"/>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Make</label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" name="make" th:value="${rent.make}" readonly/>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Model</label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" name="model" th:value="${rent.model}" readonly/>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Name</label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" name="name" th:value="${rent.name}" readonly/>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Phone</label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" name="phone" th:value="${rent.phone}" readonly />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Pick up Date(Y/M/D)</label>
+                            <div class="col-sm-9">  
+                              <input type="text" class="form-control" name="pickupdate" th:value="${#dates.format(rent.pickupdate, 'yyyy-MM-dd')}" readonly/>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Return Date(Y/M/D)</label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" name="returndate" th:value="${#dates.format(rent.returndate, 'yyyy-MM-dd')}" readonly/>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Total Price</label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" name="total" th:value="${rent.total}" readonly/>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Status</label>
+                            <div class="col-sm-9">
+                              	<select name="status" class="form-select">
+		                            <option th:value="${rent.status}">pending</option>
+		                            <option value="approved">approve</option>
+		                            <option value="canceled">cancel</option>
+                        		</select>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                     
+                    <button type="submit" class="btn btn-primary me-2">Submit</button>
+                    <a class="btn btn-warning me-2" th:href="@{/admin/cars}">Back</a>
+                    </form>
+                  </div>
+                </div>
+              </div>
+</div>
+ 
+</div>
+
+</body>
+</html>

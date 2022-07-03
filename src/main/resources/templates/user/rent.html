@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vintage Car Rentals</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <!-- Link Swiper's CSS -->
+    <link
+            rel="stylesheet"
+            href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  
+
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<header>
+    <div class="brand"></div>
+    <div class="toggle"></div>
+    <nav class="navigation">
+
+        <ul>
+            <li><a href="/user/index#hero">Home</a></li>
+            <!-- <li><a href="#">Garage</a></li> -->
+            <li><a href="/user/index#garage">Garage</a></li>
+            <!-- <li><a href="#">FAQ</a></li> -->
+            <li><a href="/user/index#contact">Contacts</a></li>
+
+          
+    		<li><a href="/logout">Logout</a></li>
+    		
+    		<li><a href="/users/reservations">Reservations</a></li>		
+<!--            <li ><a th:href="@{/login}">Login</a></li>-->
+
+            <div class="social">
+                <a href="#">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="#">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#">
+                    <i class="fab fa-facebook-messenger"></i>
+                </a>
+            </div>
+            <div class="contact-bar">
+                <i class="fas fa-phone">+111 222 3456</i>
+            </div>
+
+        </ul>
+
+    </nav>
+    <div class="login">
+        <!-- <a href="#">[[${#request.remoteUser}]]</a> -->
+        <a href="#" th:text="${user.username}"></a>
+        <a class="dropdown-item"  style="border:none;" href="/logout">Logout</a>
+    	
+    </div>
+    <div class="contact-nav">
+
+			<span>
+				<a href="#">
+					<i class="fab fa-twitter fa-2x"></i>
+				</a>
+				<a href="#">
+					<i class="fab fa-facebook fa-2x"></i>
+				</a>
+				<a href="#">
+					<i class="fab fa-instagram fa-2x"></i>
+				</a>
+				<a href="#">
+					<i class="fab fa-facebook-messenger"></i>
+				</a>
+			</span>
+        <i class="fas fa-phone"> <h6>&nbsp; +111 222 3456</h6></i>
+    </div>
+    
+    
+    
+    <main>
+
+	<div class="details__left">
+
+		<h3 th:text="${car.make} + ' ' + ${car.model} + ' for rent'"></h3>
+
+		<img alt="" th:src="${'data:image/jpeg;base64,'+{car.image}}">
+
+		<h4 th:text=" '$'+ ${car.price}"></h4><span> /day</span>
+		<div class="details__left__wrapper">
+			<div class="p__left">
+				
+				<p>Includes:</p>
+				<p>Top Speed:</p>
+				<p>0-60 mph in:</p>
+			
+				<p>Seats:</p>
+				<p>Engine:</p>
+			</div>
+			<div class="p__right">
+			
+				<p th:text="${car.details}"></p>
+				<p th:text="${car.topspeed}"></p>
+				<p th:text="${car.acceleration}"></p>
+				
+				<p th:text="${car.seats}"></p>
+				<p th:text="${car.engine}"></p>
+			</div>
+		</div>
+		<form th:action="@{/rentals}" method="post">
+			<input type="text" name="name" class="name" placeholder="Name" th:value="${user.username}">		
+			<input type="text" name="phone" class="phone" placeholder="Phone" required>
+			<input type="email" name="email" class="email" placeholder="Email">
+			
+			<input type="hidden" name="make" th:value="${car.make}">
+			<input type="hidden" name="model" th:value="${car.model}">
+			<input type="hidden" name="carid" th:value="${car.id}">
+			<input type="hidden" name="total" th:value="${car.price}">
+			<input type="hidden" name="userid" th:value="${user.id}">
+			
+			<span>
+				<label>Pick-up Date</label>
+				<input type="date" name="pickupdate"  placeholder="Pick-up Date" required>
+			</span>
+			<span>
+				<label>Return Date</label>
+				<input type="date" name="returndate"  placeholder="Return Date" required>
+			</span>
+			<button type="submit" class="btn">Drive Now</button>
+		</form>
+	</div>
+
+	
+
+</main>
+    
+
+
+<footer>
+    <h3>Privacy Policy</h3>
+    <h2>&copy; Copyright 2022 | Leord All Rights Reserved</h2>
+
+</footer>
+<script th:src="@{/js/script.js}" defer></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<!-- Swiper JS -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+<!-- Initialize Swiper -->
+<script>
+	var swiper = new Swiper(".mySwiper", {
+	  effect: "coverflow",
+	  grabCursor: true,
+	  centeredSlides: true,
+	  slidesPerView: "auto",
+	  coverflowEffect: {
+		rotate: 20,
+		stretch: 0,
+		depth: 200,
+		modifier: 1,
+		slideShadows: true,
+	  },
+	  loop: true,
+	  autoplay: {
+		delay: 2500,
+		disableOnInteraction: false,
+	  },
+	  pagination: {
+		el: ".swiper-pagination",
+	  },
+	});
+
+	AOS.init({
+		duration: 1000,
+		once: true,
+	});
+  </script>
+</body>
+</html>

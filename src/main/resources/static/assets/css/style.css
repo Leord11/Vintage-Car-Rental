@@ -20834,4 +20834,63 @@ div.tagsinput {
   -webkit-flex-grow: 1;
   flex-grow: 1; }
 
+
+
+/* -------------- */
+
+.msg__wrapper {
+
+	
+	display: flex;
+	top: 100px;
+	right: 0;
+	justify-content: space-between;
+	position: fixed;
+	z-index: 99;
+	align-items: center;
+	opacity: 0.5;
+	background: green;	
+	
+	border-top-left-radius: 25px;
+	border-bottom-left-radius: 25px;
+
+
+}
+
+.msg__wrapper:hover {
+	opacity: 0.8;
+}
+
+.inactive {
+	display: none;
+}
+.delete {
+	background: darkred;
+}
+.msg__wrapper span {
+
+	font-size: 1.4rem;
+	font-weight: 500;
+	color: #fff;
+	width: 400px;
+	align-content: center;	
+	padding-right:20px;
+	padding-left: 20px;
+
+}
+
+.msg__wrapper .clickMe {
+	font-size: 1.5rem;
+	text-decoration: none;
+	font-weight: 900;
+	color: lightgray;
+	align-items: center;	
+	width: 20px;
+	padding-right:20px;
+	padding-left: 20px;
+	cursor: pointer;
+	z-index: 99;
+}
+
+
 /*# sourceMappingURL=maps/style.css.map */

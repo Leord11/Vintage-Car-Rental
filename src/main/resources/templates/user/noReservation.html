@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vintage Car Rentals</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+    
+
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<header>
+    <div class="brand"></div>
+    <div class="toggle"></div>
+    <nav class="navigation">
+
+        <ul>
+            <li><a href="/user/index#hero">Home</a></li>
+            <!-- <li><a href="#">Garage</a></li> -->
+            <li><a href="/user/index#garage">Garage</a></li>
+            <!-- <li><a href="#">FAQ</a></li> -->
+            <li><a href="/user/index#contact">Contacts</a></li>
+
+          
+    		<li><a href="/logout">Logout</a></li>
+    			
+    		<li><a href="/users/reservations">Reservations</a></li>	
+<!--            <li ><a th:href="@{/login}">Login</a></li>-->
+
+            <div class="social">
+                <a href="#">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="#">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#">
+                    <i class="fab fa-facebook-messenger"></i>
+                </a>
+            </div>
+            <div class="contact-bar">
+                <i class="fas fa-phone">+111 222 3456</i>
+            </div>
+
+        </ul>
+
+    </nav>
+    <div class="login">
+        <a href="#">[[${#request.remoteUser}]]</a>
+        <a class="dropdown-item"  style="border:none;" href="/logout">Logout</a>
+    	
+    </div>
+    <div class="contact-nav">
+
+			<span>
+				<a href="#">
+					<i class="fab fa-twitter fa-2x"></i>
+				</a>
+				<a href="#">
+					<i class="fab fa-facebook fa-2x"></i>
+				</a>
+				<a href="#">
+					<i class="fab fa-instagram fa-2x"></i>
+				</a>
+				<a href="#">
+					<i class="fab fa-facebook-messenger"></i>
+				</a>
+			</span>
+        <i class="fas fa-phone"> <h6>&nbsp; +111 222 3456</h6></i>
+    </div>
+    
+    <div class="hero" style="flex-direction:column;">
+    
+    	<h1 style="font-size:3rem; color:lightgray;">No Reservations Yet</h1>
+    	<a href="/user/index#garage" style="color:lightgray;">
+    		<h3>Rent a Vintage car now</h3>
+    	</a>
+    </div>
+
+
+<footer>
+    <h3>Privacy Policy</h3>
+    <h2>&copy; Copyright 2022 | Leord All Rights Reserved</h2>
+
+</footer>
+<script th:src="@{/js/script.js}" defer></script>
+
+
+
+
+</body>
+</html>

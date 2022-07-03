@@ -1,6 +1,9 @@
 package com.leord.car_rental;
 
 
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,7 +18,12 @@ public class ApplicationController {
 
     @RequestMapping("/login")
     public String login() {
-        return "login";
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        if (authentication == null || authentication instanceof AnonymousAuthenticationToken) {
+            return "login";
+        }
+        return "redirect:/user/index";
     }
 
     @GetMapping("/register")
@@ -28,13 +36,10 @@ public class ApplicationController {
         return "accessDenied";
     }
 
-    @GetMapping("/user/index")
-    public String userHome(){
-        return "user/index";
-    }
+//    @GetMapping("/user/index")
+//    public String userHome(){
+//        return "user/index";
+//    }
 
-    @GetMapping("/admin/index")
-    public String adminHome() {
-        return "admin/index";
-    }
+    
 }

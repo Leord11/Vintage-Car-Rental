@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{_layout}">
+
+<body>
+<div layout:fragment="content">
+
+<div class="content-wrapper">
+
+<div class="col-12 grid-margin">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Edit Car</h4>
+                    <form class="form-sample" th:action="@{/admin/update}" method="post" enctype="multipart/form-data">
+                      <p class="card-description"> Car Details </p>
+                      
+                      <input type="hidden" name="id"  th:value="${car.id}"/>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Make</label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" name="make" th:value="${car.make}"/>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Model</label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" name="model" th:value="${car.model}"/>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Price</label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" name="price" th:value="${car.price}"/>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Details</label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" name="details" th:value="${car.details}"  />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Top Speed</label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" name="topspeed" th:value="${car.topspeed}"/>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Acceleration</label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" name="acceleration" th:value="${car.acceleration}"/>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Seats</label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" name="seats" th:value="${car.seats}"/>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Engine</label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" name="engine" th:value="${car.engine}"/>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div class="row">
+                        
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Old Image</label>
+                            <div class="col-sm-9">
+                              <img alt="" th:src="${'data:image/jpeg;base64,'+{car.image}}" style="width:150px; height:150px; object-fit:contain;">
+                            </div>
+                          </div>
+                        </div>
+                       	<div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Update image</label>
+                            <div class="col-sm-9">
+                              <input type="file" class="form-control" name="file" th:value="${car.image}" />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    
+                    <button type="submit" class="btn btn-inverse-primary">Submit</button>
+                    <a class="btn btn-inverse-warning" th:href="@{/admin/cars}">Back</a>
+                    </form>
+                  </div>
+                </div>
+              </div>
+</div>
+ 
+</div>
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{_layout}">
+
+<body>
+<div layout:fragment="content">
+
+ <div class="msg__wrapper">
+
+		<span th:utext="${message}"></span>
+
+		<a  class="clickMe" th:utext="${x}" ></a>
+	</div>
+<div class="content-wrapper">
+<div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">All Cars</h4>
+                    
+                    
+                    <div class="table-responsive">
+                      <table class="table table-striped table-hover">
+                        <thead>
+                          <tr>
+                          	<th> Image </th>
+                            <th> Make </th>
+                            <th> Model </th>
+                            <th> Engine </th>
+                            <th> Seats </th>
+                            <th> Price </th>
+                            <th> Action </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr th:each="car:${cars}">
+                            <td><img alt="" th:src="${'data:image/jpeg;base64,'+{car.image}}" style="width:150px; height:150px; object-fit:contain;"></td>
+                            <td th:text="${car.make}"></td>
+                            <td th:text="${car.model}"></td>
+                            <td th:text="${car.engine}"></td>
+                            <td th:text="${car.seats}"></td>
+                            <td th:text="${car.price}"></td>
+                            <td>
+                            	<a class="btn btn-inverse-primary" th:href="@{'/admin/car/edit/'+${car.id}}">
+                                <i class="mdi mdi-table-edit"></i> Edit</a>
+                                
+                                <a class="btn btn-inverse-danger" th:href="@{'/admin/car/delete/'+${car.id}}">
+                                <i class="mdi mdi-delete-forever"></i> Delete</a>
+                            </td>
+                            
+                          </tr>
+                        
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+</div> 
+</div>
+
+</body>
+</html>

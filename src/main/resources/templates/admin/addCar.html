@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{_layout}">
+
+<body>
+<div layout:fragment="content">
+
+<div class="content-wrapper">
+
+<div class="col-12 grid-margin">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Add New Car</h4>
+                    <form class="form-sample" th:action="@{/admin/cars}" method="post" enctype="multipart/form-data">
+                      <p class="card-description"> Car Details </p>
+                      
+                      <input type="hidden" name="id" />
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Make</label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" name="make" />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Model</label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" name="model" />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Price</label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" name="price" placeholder="per day"/>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Details</label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" name="details"  />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Top Speed</label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" name="topspeed" />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Acceleration</label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" name="acceleration" />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Seats</label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" name="seats" />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Engine</label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" name="engine" />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div class="row">
+                        
+                       	<div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Upload image</label>
+                            <div class="col-sm-9">
+                              <input type="file" class="form-control" name="file" />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    
+                    <button type="submit" class="btn btn-inverse-primary">Submit</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+</div>
+ 
+</div>
+
+</body>
+</html>

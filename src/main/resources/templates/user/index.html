@@ -1,11 +1,220 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <head>
     <meta charset="UTF-8">
-    <title>User</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vintage Car Rentals</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <!-- Link Swiper's CSS -->
+    <link
+            rel="stylesheet"
+            href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    
+
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
 
-<h1>Welcome to User Page!</h1>
+<header>
+    <div class="brand"></div>
+    <div class="toggle"></div>
+    <nav class="navigation">
+
+        <ul>
+            <li><a href="#hero">Home</a></li>
+            <!-- <li><a href="#">Garage</a></li> -->
+            <li><a href="#garage">Garage</a></li>
+            <!-- <li><a href="#">FAQ</a></li> -->
+            <li><a href="#contact">Contacts</a></li>
+
+          
+    		<li><a href="/logout">Logout</a></li>
+    			
+    		<li><a href="/users/reservations">Reservations</a></li>	
+<!--            <li ><a th:href="@{/login}">Login</a></li>-->
+
+            <div class="social">
+                <a href="#">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="#">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#">
+                    <i class="fab fa-facebook-messenger"></i>
+                </a>
+            </div>
+            <div class="contact-bar">
+                <i class="fas fa-phone">+111 222 3456</i>
+            </div>
+
+        </ul>
+
+    </nav>
+    <div class="login">
+        <a href="#">[[${#request.remoteUser}]]</a>
+        <a class="dropdown-item"  style="border:none;" href="/logout">Logout</a>
+    	
+    </div>
+    <div class="contact-nav">
+
+			<span>
+				<a href="#">
+					<i class="fab fa-twitter fa-2x"></i>
+				</a>
+				<a href="#">
+					<i class="fab fa-facebook fa-2x"></i>
+				</a>
+				<a href="#">
+					<i class="fab fa-instagram fa-2x"></i>
+				</a>
+				<a href="#">
+					<i class="fab fa-facebook-messenger"></i>
+				</a>
+			</span>
+        <i class="fas fa-phone"> <h6>&nbsp; +111 222 3456</h6></i>
+    </div>
+    
+    <div class="msg__wrapper">
+
+		<span th:utext="${message}"></span>
+
+		<a  class="clickMe" th:utext="${x}" ></a>
+	</div>
+	
+	
+    <div class="hero" id="hero">
+        <div class="imgBx">
+            <img th:src="@{/./img/Shelby_Cobra-2-no_bg.png}" alt="">
+        </div>
+        <div class="msg-container">
+            <h2>intage <span> car Rentals </span></h2>
+        </div>
+        <div class="label-container">
+            <h5>THE Shelby Cobra 1965</h5>
+            <h4>$500 <span>/day</span></h4>
+            <a href="#garage" >
+                <p>Drive Now &rarr;</p>
+            </a>
+        </div>
+
+    </div>
+
+</header>
+
+
+<section>
+
+    <div class="section-title" id="garage">
+        <h1 data-aos="fade-left">Garage</h1>
+
+        <!-- <h3 data-aos="fade-right">View All Cars</h3> -->
+    </div>
+
+
+        <div class="garage-container">
+            <div class="swiper-slide" th:each="car:${cars}">
+            	
+                <img alt="" th:src="${'data:image/jpeg;base64,'+{car.image}}">
+                <div class="card-content">
+                    <h3 th:text="${car.make}"></h3>
+                    <h4 th:text="${car.model}"></h4>
+                    <div class="card-details">
+                        <p th:text="'$'+${car.price} +' /day'"><span>/day</span></p>
+                        <a th:href="@{'/rentals/add/'+${car.id}}" id="removeClass">
+                        	<p> Drive now &rarr;</p>
+                        </a>
+                    </div>
+                </div>
+                
+            </div>
+		</div>
+
+
+
+
+    <!-- ABOUT US -->
+
+
+
+
+
+    <div class="mapBox" data-aos="fade-out">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3959.406914951814!2d125.61196806961323!3d7.078733466030986!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x32f96da196206f5f%3A0x59abacbdd0320e1c!2sGaisano%20Mall%20of%20Davao!5e0!3m2!1sen!2sph!4v1653023138999!5m2!1sen!2sph" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+    </div>
+    <div class="contact-section" id="contact">
+
+
+        <div class="section-contact__1" data-aos="slide-left">
+            <h3>Feel Free to </h3>
+            <h3>Contact Us</h3>
+
+            <p id="p1">Phone:</p> <span id="span1">+ 111 222 3456</span>
+            <p id="p2">Address: </p><span id="span2">123 Test Drive, Davao City</span>
+            <p id="p3">Email: </p><span id="span3">example@example.com</span>
+            <p id="p4">Hours of </p><span id="span4">Everyday</span>
+            <p id="p5">Occupation: </p><span id="span5">10:00AM - 10:00PM</span>
+        </div>
+        <div class="section-contact__2" data-aos="slide-right">
+            <h2>Send us a message</h2>
+            <form>
+                <input type="text" name="name" class="name" placeholder="Name">
+                <input type="email" name="email" class="email" placeholder="Email">
+                <input type="text" name="phone" class="phone" placeholder="Phone">
+                <textarea name="message" class="message" placeholder="Message"></textarea>
+                <button class="btn">Submit</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+
+<footer>
+    <h3>Privacy Policy</h3>
+    <h2>&copy; Copyright 2022 | Leord All Rights Reserved</h2>
+
+</footer>
+<script th:src="@{/js/script.js}" defer></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<!-- Swiper JS -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+<!-- Initialize Swiper -->
+<script>
+	var swiper = new Swiper(".mySwiper", {
+	  effect: "coverflow",
+	  grabCursor: true,
+	  centeredSlides: true,
+	  slidesPerView: "auto",
+	  coverflowEffect: {
+		rotate: 20,
+		stretch: 0,
+		depth: 200,
+		modifier: 1,
+		slideShadows: true,
+	  },
+	  loop: true,
+	  autoplay: {
+		delay: 2500,
+		disableOnInteraction: false,
+	  },
+	  pagination: {
+		el: ".swiper-pagination",
+	  },
+	});
+
+	AOS.init({
+		duration: 1000,
+		once: true,
+	});
+  </script>
 </body>
 </html>

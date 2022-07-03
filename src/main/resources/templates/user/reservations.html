@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vintage Car Rentals</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+  
+    
+
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <style>
+    
+    	.reservation-container{
+    		
+    		display:flex;
+    		flex-wrap: wrap;
+    		position:relative;
+    		justify-content:center;
+    		align-items:center;
+    		height: 100vh;
+    		padding: 20px;
+    	}
+    	table {
+    		max-width:1000px;
+    		border: solid 1px gray;
+    		padding:10px;
+    	}
+    	table thead th{
+    		font-weight:900;
+    		border-bottom: solid 1px gray;
+    		font-size: 1.4rem;
+    		padding:10px;
+    	}
+    	table td {
+    		padding: 10px;
+    		text-align:center;
+    		color:lightgray;
+    		border-bottom: solid 1px gray;
+    	}
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="brand"	28-06-2022	1200></div>
+    <div class="toggle"></div>
+    <nav class="navigation">
+
+        <ul>
+            <li><a href="/user/index#hero">Home</a></li>
+            <!-- <li><a href="#">Garage</a></li> -->
+            <li><a href="/user/index#garage">Garage</a></li>
+            <!-- <li><a href="#">FAQ</a></li> -->
+            <li><a href="/user/index#contact">Contacts</a></li>
+
+          
+    		<li><a href="/logout">Logout</a></li>
+    			
+    		<li><a href="/users/reservations">Reservations</a></li>	
+<!--            <li ><a th:href="@{/login}">Login</a></li>-->
+
+            <div class="social">
+                <a href="#">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="#">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#">
+                    <i class="fab fa-facebook-messenger"></i>
+                </a>
+            </div>
+            <div class="contact-bar">
+                <i class="fas fa-phone">+111 222 3456</i>
+            </div>
+
+        </ul>
+
+    </nav>
+    <div class="login">
+        <a href="#">[[${#request.remoteUser}]]</a>
+        <a class="dropdown-item"  style="border:none;" href="/logout">Logout</a>
+    	
+    </div>
+    <div class="contact-nav">
+
+			<span>
+				<a href="#">
+					<i class="fab fa-twitter fa-2x"></i>
+				</a>
+				<a href="#">
+					<i class="fab fa-facebook fa-2x"></i>
+				</a>
+				<a href="#">
+					<i class="fab fa-instagram fa-2x"></i>
+				</a>
+				<a href="#">
+					<i class="fab fa-facebook-messenger"></i>
+				</a>
+			</span>
+        <i class="fas fa-phone"> <h6>&nbsp; +111 222 3456</h6></i>
+    </div>
+    	
+    <div class="reservation-container">
+    
+    				<table>
+        				<thead>
+                          <tr>
+                          	
+                            <th> Make </th>
+                            <th> Model </th>
+                            <th> Pick up Date (D/M/Y) </th>
+                            <th> Return Date (D/M/Y) </th>
+                            <th> Total </th>
+                            <th> Status </th>
+                            <!-- <th> Action </th> -->
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr th:each="reserve:${reservations}">
+                            
+                            <td th:text="${reserve.make}"></td>
+                            <td th:text="${reserve.model}"></td>
+                            <td th:text="${#dates.format(reserve.pickupdate, 'dd-MM-YYYY')}"></td>
+                            <td th:text="${#dates.format(reserve.returndate, 'dd-MM-YYYY')}"></td>
+                            <td th:text="${reserve.total}"></td>
+                            <td th:text="${reserve.status}"></td>
+                            <!-- <td>
+                            	<a class="btn btn-inverse-primary" th:href="@{'/admin/car/edit/'+${car.id}}">
+                                <i class="mdi mdi-table-edit"></i> Edit</a>
+                                
+                                <a class="btn btn-inverse-danger" th:href="@{'/admin/car/delete/'+${car.id}}">
+                                <i class="mdi mdi-delete-forever"></i> Delete</a>
+                            </td> -->
+                            
+                          </tr>
+                        
+                        </tbody>
+    
+    				</table>
+    
+    
+    </div>
+
+
+<footer>
+    <h3>Privacy Policy</h3>
+    <h2>&copy; Copyright 2022 | Leord All Rights Reserved</h2>
+
+</footer>
+<script th:src="@{/js/script.js}" defer></script>
+
+
+</body>
+</html>
