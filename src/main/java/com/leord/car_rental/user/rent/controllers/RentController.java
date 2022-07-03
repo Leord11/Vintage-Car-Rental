@@ -76,7 +76,7 @@ public class RentController {
 		model.addAttribute("reservations", rentalService.findByUserid(userId));
 		
 		if(count == 0 ) {
-			return "/user/noReservation";
+			return "/user/noReservation.html";
 		}
 		return "/user/reservations";
 	}
