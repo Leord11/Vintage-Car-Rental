@@ -40,7 +40,7 @@ public class RentController {
 		
 		model.addAttribute("rentals", rentalService.findByStatus("pending"));
 		
-		return "/admin/rentals";
+		return "admin/rentals";
 	}
 	
 	@GetMapping("/rentals/{id}")
@@ -48,7 +48,7 @@ public class RentController {
 		
 		model.addAttribute("rent", rentalService.findById(id));
 		
-		return "/admin/confirmRent";
+		return "admin/confirmRent";
 	}
 	
 	@GetMapping("/rentals/add/{id}")
@@ -61,7 +61,7 @@ public class RentController {
 		model.addAttribute("user", user);
 		model.addAttribute("car",carService.findById(id));
 		
-		return "/user/rent";
+		return "user/rent";
 	}
 	
 	
@@ -76,9 +76,9 @@ public class RentController {
 		model.addAttribute("reservations", rentalService.findByUserid(userId));
 		
 		if(count == 0 ) {
-			return "/user/noReservation.html";
+			return "user/noReservation";
 		}
-		return "/user/reservations";
+		return "user/reservations";
 	}
 	
 	
