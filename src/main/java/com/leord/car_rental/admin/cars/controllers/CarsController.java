@@ -37,7 +37,7 @@ public class CarsController {
 	
 	@GetMapping("/admin/addCar")
 	public String addCar() {
-		return "/admin/addCar";
+		return "admin/addCar";
 	}
 	
 	/*
@@ -74,7 +74,7 @@ public class CarsController {
 	public String editCar(@PathVariable Integer id, Model model) {
 		Cars car = carServices.findById(id);
 		model.addAttribute("car",car);
-		return "/admin/editCar";
+		return "admin/editCar";
 	}
 	
 	@RequestMapping(value="/admin/car/delete/{id}", method = {RequestMethod.GET, RequestMethod.DELETE} )
